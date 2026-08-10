@@ -1,1 +1,39 @@
+#include <stdio.h>
 
+int main()
+{
+    char str[500];
+    int words = 0, lines = 0, characters = 0;
+    int i;
+
+    printf("Enter text (use ~ to end):\n");
+    scanf("%[^~]", str);
+
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if (str[i] == ' ' || str[i] == '\t')
+        {
+            words++;
+        }
+        else if (str[i] == '\n')
+        {
+            lines++;
+        }
+        else
+        {
+            characters++;
+        }
+    }
+
+    if (characters > 0)
+    {
+        words++;
+        lines++;
+    }
+
+    printf("\nTotal number of words: %d\n", words);
+    printf("Total number of lines: %d\n", lines);
+    printf("Total number of characters: %d\n", characters);
+
+    return 0;
+}
